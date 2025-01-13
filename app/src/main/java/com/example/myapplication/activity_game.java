@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Arrays;
 
 public class activity_game extends AppCompatActivity {
+
+
     boolean gameActive = true;
 
     // Player representation
@@ -146,6 +148,7 @@ public class activity_game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
 
         Button exit=findViewById(R.id.exit_button);
         exit.setOnClickListener(new View.OnClickListener() {

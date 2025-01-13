@@ -1,5 +1,5 @@
 package com.example.myapplication;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         Button gameButton=findViewById(R.id.start_button);
         // Load the saved scores from SharedPreferences
@@ -37,5 +39,22 @@ public class MainActivity extends AppCompatActivity {
 
         scorePlayerA.setText(String.valueOf(scoreA));
         scorePlayerB.setText(String.valueOf(scoreB));
+
+        Button resetButton=findViewById(R.id.reset_score);
+
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int resetTo = 0;
+                SharedPreferences prefs = getSharedPreferences("game_prefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("score_playerA", resetTo);
+                editor.putInt("score_playerB", resetTo);
+                editor.apply();
+
+                scorePlayerA.setText(String.valueOf(resetTo));
+                scorePlayerB.setText(String.valueOf(resetTo));
+            }
+        });
     }
 }
