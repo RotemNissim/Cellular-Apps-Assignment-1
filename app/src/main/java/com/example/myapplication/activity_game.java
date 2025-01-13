@@ -104,9 +104,9 @@ public class activity_game extends AppCompatActivity {
     public void gameReset(View view) {
         gameActive = true;
         activePlayer = 0;
+        counter = 0;
 
         Arrays.fill(gameState, 2);
-
         ((ImageView) findViewById(R.id.block1)).setImageResource(0);
         ((ImageView) findViewById(R.id.block2)).setImageResource(0);
         ((ImageView) findViewById(R.id.block3)).setImageResource(0);
